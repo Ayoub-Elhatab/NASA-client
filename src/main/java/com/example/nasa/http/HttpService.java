@@ -1,6 +1,7 @@
 package com.example.nasa.http;
 
-import com.example.nasa.dtos.response.HttpResponse;
+import com.example.nasa.dtos.response.ApiResponse;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -34,7 +35,7 @@ public class HttpService {
                 .collect(Collectors.joining("&"));
     }
 
-    public HttpResponse getData(String uri) throws IOException, InterruptedException {
+    public ApiResponse getData(String uri) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
                 .version(HttpClient.Version.HTTP_2)
@@ -44,6 +45,20 @@ public class HttpService {
 
         java.net.http.HttpResponse<String> response = client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
 
-        return new HttpResponse(response.statusCode(), response.body());
+        return new ApiResponse(response.statusCode(), response.body());
     }
+
+//    public String getData2(String uri) throws IOException, InterruptedException {
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create(uri))
+//                .version(HttpClient.Version.HTTP_2)
+//                .GET()
+//                .timeout(Duration.ofSeconds(5))
+//                .build();
+//
+//        java.net.http.ApiResponse<String> response = client.send(request, java.net.http.ApiResponse.BodyHandlers.ofString());
+//
+//
+//        return response.body();
+//    }
 }

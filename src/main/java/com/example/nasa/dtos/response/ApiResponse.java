@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class HttpResponse {
+public class ApiResponse {
     private int statusCode;
     private String body;
 }

@@ -1,7 +1,7 @@
 package com.example.nasa.api;
 
 import com.example.nasa.dtos.error.ApiErrorDto;
-import com.example.nasa.dtos.response.HttpResponse;
+import com.example.nasa.dtos.response.ApiResponse;
 import com.example.nasa.exception.ApiException;
 import com.example.nasa.http.HttpService;
 import com.example.nasa.utils.JsonUtils;
@@ -23,7 +23,7 @@ public abstract class BaseClient <T>{
     public T getData() throws IOException, InterruptedException {
         String url = service.buildUrl(getBaseUrl(), getQueryParams());
 
-        HttpResponse response = service.getData(url);
+        ApiResponse response = service.getData(url);
 
         if (response.getStatusCode() != 200) {
             ApiErrorDto error = JsonUtils.toJson(response.getBody(), ApiErrorDto.class);
