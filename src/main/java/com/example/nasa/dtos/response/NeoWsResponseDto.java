@@ -1,4 +1,4 @@
-package com.example.nasa.dtos.neows;
+package com.example.nasa.dtos.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.util.Map;
 @Getter
 @Setter
 @ToString
-public class NeoWsDto {
+public class NeoWsResponseDto {
     private Links links;
     private int element_count;
     private Map<String, List<NearEarthObject>> near_earth_objects;

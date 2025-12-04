@@ -13,4 +13,12 @@ public class JsonUtils {
             throw new RuntimeException("Failed to convert JSON to object", e);
         }
     }
+
+    public static void print(Object obj) {
+        try {
+            System.out.println(mapper.writeValueAsString(obj));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
