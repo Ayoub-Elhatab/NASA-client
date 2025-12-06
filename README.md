@@ -8,6 +8,7 @@ A simple Java library for interacting with various NASA APIs.
 - **NeoWs** - Near Earth Object Web Service
 - **EPIC** - Earth Polychromatic Imaging Camera
 - **InSight** - Mars Weather Service
+- **NASA Images** - Nasa Image and Video library
 - **OSDR** - Open Science Data Repository
 - **TLE** - Two-Line Element satellite tracking data
 
@@ -63,6 +64,22 @@ InSightResponseDto insight = nasa.insight().getData(Map.of(
     "api_key", "YOUR_API_KEY",
     "feedtype", "json",
     "ver", "1.0"
+));
+```
+
+### Search NASA Image and Video Library
+
+```java
+// Search for images
+NasaImageResponseDto images = nasa.images().getData(Map.of(
+    "q", "mars", 
+    "media_type", "image"
+));
+
+// Search for videos
+NasaImageResponseDto videos = nasa.images().getData(Map.of(
+    "q", "apollo 11", 
+    "media_type", "video"
 ));
 ```
 

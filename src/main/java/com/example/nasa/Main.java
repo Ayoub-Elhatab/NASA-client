@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        // this for testing
+        // this is for testing
 
         NasaApiClient nasa = new NasaApiClient();
 
@@ -20,6 +20,7 @@ public class Main {
 //        JsonUtils.print(nasa.osdr().getData(87, Map.of()));
 //        JsonUtils.print(nasa.tle().getData(Map.of("search", "{LANDSAT 9}")));
 //        JsonUtils.print(nasa.epic().getData(Map.of()));
+//        JsonUtils.print(nasa.images().getData(Map.of("q", "mars", "media_type", "image")));
 
     }
 }

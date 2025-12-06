@@ -11,6 +11,7 @@ public class NasaApiClient {
     private final OsdrClient osdrClient;
     private final TleClient tleClient;
     private final EpicClient epicClient;
+    private final NasaImageClient imageClient;
 
     public NasaApiClient() {
         HttpService service = new HttpService();
@@ -20,6 +21,7 @@ public class NasaApiClient {
         this.osdrClient = new OsdrClient(service);
         this.tleClient = new TleClient(service);
         this.epicClient = new EpicClient(service);
+        this.imageClient = new NasaImageClient(service);
     }
 
     public ApodClient apod() { return apodClient; }
@@ -28,4 +30,5 @@ public class NasaApiClient {
     public OsdrClient osdr() { return osdrClient; }
     public TleClient tle() { return tleClient; }
     public EpicClient epic() { return epicClient; }
+    public NasaImageClient images() { return imageClient; }
 }
